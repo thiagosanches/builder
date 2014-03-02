@@ -6,6 +6,7 @@ Creates a 3 tier .NET project, with all the relationship between them.
 
 TODO
 ====
+* Remove directory after test run
 * Create a solution file
 * Add Web project option (WebForms, MVC) (example: -w "WebForms", -w "MVC")
 * Add Console application project option (example: -c)
