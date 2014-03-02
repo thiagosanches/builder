@@ -7,13 +7,45 @@ namespace Builder.Unit
     public class BuilderTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void BuildSingleProjectBusiness()
         {
             Builder.Template.Builder builder = new Template.Builder();
-            
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            
-            builder.Build("teste.xml", desktop, "MyTemplateTest");
+
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "temporary");
+            string pathPackage = builder.Build("teste.xml", path, "MyTemplateTest");
+
+            Assert.IsTrue(CompileProject(System.IO.Path.Combine(pathPackage, "MyTemplateTest.Business", "MyTemplateTest.Business.csproj")));
+        }
+
+        private bool CompileProject(string path)
+        {
+            try
+            {
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                
+                //TODO - add msbuild path to the app.config file 
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe", 
+                    Arguments = path, 
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = false
+                };
+
+                process.Start();
+
+                System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder(); 
+                while (!process.StandardOutput.EndOfStream)
+                    stringBuilder.AppendLine(process.StandardOutput.ReadLine());
+
+                //TODO - refactor...
+                return stringBuilder.ToString().Contains("0 Erro");
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

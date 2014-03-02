@@ -11,11 +11,13 @@ namespace Builder.Template
 {
     public class Builder
     {
-        public void Build(string template, string path, string projectName)
+        public string Build(string template, string path, string projectName)
         {
+            string temporaryDirectory = null;
+
             try
             {
-                string temporaryDirectory = string.Format(@"{0}\{1}_{2}_{3}", path, DateTime.Now.Hour,
+                temporaryDirectory = string.Format(@"{0}\{1}_{2}_{3}", path, DateTime.Now.Hour,
                     DateTime.Now.Minute, DateTime.Now.Second);
 
                 System.Xml.XmlDocument xml = new System.Xml.XmlDocument();
@@ -35,6 +37,8 @@ namespace Builder.Template
             {
                 throw ex;
             }
+
+            return temporaryDirectory;
         }
 
         private void ConfigureLibrary(System.Xml.XmlDocument xml, string projectName, Layer layer)
