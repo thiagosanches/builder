@@ -35,7 +35,7 @@ namespace Builder.Template
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
 
             return temporaryDirectory;

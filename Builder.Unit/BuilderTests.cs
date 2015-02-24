@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Reflection;
 
 namespace Builder.Unit
 {
@@ -12,7 +13,7 @@ namespace Builder.Unit
             Builder.Template.Builder builder = new Template.Builder();
 
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "temporary");
-            string pathPackage = builder.Build("teste.xml", path, "MyTemplateTest");
+            string pathPackage = builder.Build(@"..\Debug\Template\ClassLibrary.xml", path, "MyTemplateTest");
 
             Assert.IsTrue(CompileProject(System.IO.Path.Combine(pathPackage, "MyTemplateTest.Business", "MyTemplateTest.Business.csproj")));
         }
