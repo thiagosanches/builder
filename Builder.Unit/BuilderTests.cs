@@ -11,11 +11,10 @@ namespace Builder.Unit
         public void BuildSingleProjectBusiness()
         {
             Builder.Template.Builder builder = new Template.Builder();
+            var baseDir = builder.GenerateOutputBaseDir();
+            builder.Build(baseDir, "MyTemplateTest");
 
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "temporary");
-            string pathPackage = builder.Build(@"..\Debug\Template\ClassLibrary.xml", path, "MyTemplateTest");
-
-            Assert.IsTrue(CompileProject(System.IO.Path.Combine(pathPackage, "MyTemplateTest.Business", "MyTemplateTest.Business.csproj")));
+            Assert.IsTrue(CompileProject(System.IO.Path.Combine(baseDir, "MyTemplateTest.Business", "MyTemplateTest.Business.csproj")));
         }
 
         private bool CompileProject(string path)
