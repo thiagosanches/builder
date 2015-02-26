@@ -1,8 +1,9 @@
-Builder
+Builder 
 =======
 
 Creates a 3 tier .NET project, with all the relationship between them.
 
+![Build](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?retina=true)
 
 TODO
 ====
