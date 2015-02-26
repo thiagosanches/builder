@@ -18,7 +18,7 @@ namespace Builder.Template.Template
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
+    #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
     public partial class XmlCsProjTemplate : XmlCsProjTemplateBase
     {
@@ -36,7 +36,7 @@ namespace Builder.Template.Template
     <Platform Condition="" '$(Platform)' == '' "">AnyCPU</Platform>
     <ProjectGuid>");
             
-            #line 16 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
+            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_projectGuid));
             
             #line default
@@ -44,14 +44,14 @@ namespace Builder.Template.Template
             this.Write("</ProjectGuid>\r\n    <OutputType>Library</OutputType>\r\n    <AppDesignerFolder>Prop" +
                     "erties</AppDesignerFolder>\r\n    <RootNamespace>");
             
-            #line 19 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
+            #line 19 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_rootNamespace));
             
             #line default
             #line hidden
             this.Write("</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 20 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
+            #line 20 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_assemblyName));
             
             #line default
@@ -80,7 +80,7 @@ namespace Builder.Template.Template
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
+        #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template\Template\XmlCsProjTemplate.tt"
 
 private string @__projectGuidField;
 
