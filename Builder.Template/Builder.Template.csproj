@@ -53,12 +53,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Template\ClassLibrary.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Template\AssemblyInfoTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AssemblyInfoTemplate.cs</LastGenOutput>
