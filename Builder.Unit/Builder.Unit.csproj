@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Builder.Template\Builder.Template.csproj">
-      <Project>{76c5643a-979f-493d-bdee-4c39558a4009}</Project>
-      <Name>Builder.Template</Name>
+    <ProjectReference Include="..\Builder.ApplicationService\Builder.ApplicationService.csproj">
+      <Project>{a21db1ad-5276-4c1d-acb3-e9c72151a28b}</Project>
+      <Name>Builder.ApplicationService</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

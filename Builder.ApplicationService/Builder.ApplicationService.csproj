@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1EA124F-46F2-4E08-84CB-741831363D75}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{A21DB1AD-5276-4C1D-ACB3-E9C72151A28B}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Builder.ConsoleApp</RootNamespace>
-    <AssemblyName>Builder.ConsoleApp</AssemblyName>
+    <RootNamespace>Builder.ApplicationService</RootNamespace>
+    <AssemblyName>Builder.ApplicationService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,20 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BuilderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Builder.ApplicationService\Builder.ApplicationService.csproj">
-      <Project>{a21db1ad-5276-4c1d-acb3-e9c72151a28b}</Project>
-      <Name>Builder.ApplicationService</Name>
+    <ProjectReference Include="..\Builder.Core\Builder.Core.csproj">
+      <Project>{f5dc5e41-0ae6-4811-8105-4a48a1dd2c0d}</Project>
+      <Name>Builder.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Builder.Template.CSharp\Builder.Template.CSharp.csproj">
-      <Project>{552ccb8d-da2f-4c0a-8ad5-2277dddb9dcc}</Project>
-      <Name>Builder.Template.CSharp</Name>
+    <ProjectReference Include="..\Builder.Dispatcher\Builder.Dispatcher.csproj">
+      <Project>{0235f1d9-6904-46f1-8798-92ffbf8b0a35}</Project>
+      <Name>Builder.Dispatcher</Name>
     </ProjectReference>
     <ProjectReference Include="..\Builder.Template.Interface\Builder.Template.Interface.csproj">
       <Project>{53f70169-ecda-4328-be9f-baae821fb12e}</Project>

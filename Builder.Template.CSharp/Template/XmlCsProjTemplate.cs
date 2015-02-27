@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Builder.Template.Template
+namespace Builder.Template.CSharp.Template
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace Builder.Template.Template
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
+    #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
-    public partial class AssemblyInfoTemplate : AssemblyInfoTemplateBase
+    public partial class XmlCsProjTemplate : XmlCsProjTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,133 +28,96 @@ namespace Builder.Template.Template
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle(""");
+            this.Write(@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Project ToolsVersion=""4.0"" DefaultTargets=""Build"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+  <Import Project=""$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"" Condition=""Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"" />
+  <PropertyGroup>
+    <Configuration Condition="" '$(Configuration)' == '' "">Debug</Configuration>
+    <Platform Condition="" '$(Platform)' == '' "">AnyCPU</Platform>
+    <ProjectGuid>");
             
-            #line 19 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_namespaceName));
-            
-            #line default
-            #line hidden
-            this.Write(".Business\")]\r\n[assembly: AssemblyDescription(\"\")]\r\n[assembly: AssemblyConfigurati" +
-                    "on(\"\")]\r\n[assembly: AssemblyCompany(\"\")]\r\n[assembly: AssemblyProduct(\"");
-            
-            #line 23 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_namespaceName));
+            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_projectGuid));
             
             #line default
             #line hidden
-            this.Write(".Business\")]\r\n[assembly: AssemblyCopyright(\"Copyright ©  ");
+            this.Write("</ProjectGuid>\r\n    <OutputType>Library</OutputType>\r\n    <AppDesignerFolder>Prop" +
+                    "erties</AppDesignerFolder>\r\n    <RootNamespace>");
             
-            #line 24 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DateTime.Now.Year));
-            
-            #line default
-            #line hidden
-            this.Write(@""")]
-[assembly: AssemblyTrademark("""")]
-[assembly: AssemblyCulture("""")]
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
-
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid(""");
-            
-            #line 34 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_guid));
+            #line 19 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_rootNamespace));
             
             #line default
             #line hidden
-            this.Write(@""")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion(""1.0.*"")]
-[assembly: AssemblyVersion(""");
+            this.Write("</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 46 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_version));
+            #line 20 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(_assemblyName));
             
             #line default
             #line hidden
-            this.Write("\")]\r\n[assembly: AssemblyFileVersion(\"");
-            
-            #line 47 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_version));
-            
-            #line default
-            #line hidden
-            this.Write("\")]");
+            this.Write("</AssemblyName>\r\n    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>\r\n    <" +
+                    "FileAlignment>512</FileAlignment>\r\n  </PropertyGroup>\r\n  <PropertyGroup Conditio" +
+                    "n=\" \'$(Configuration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <DebugSymbols>true<" +
+                    "/DebugSymbols>\r\n    <DebugType>full</DebugType>\r\n    <Optimize>false</Optimize>\r" +
+                    "\n    <OutputPath>bin\\Debug\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</Defi" +
+                    "neConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLevel>4</Warnin" +
+                    "gLevel>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(Pl" +
+                    "atform)\' == \'Release|AnyCPU\' \">\r\n    <DebugType>pdbonly</DebugType>\r\n    <Optimi" +
+                    "ze>true</Optimize>\r\n    <OutputPath>bin\\Release\\</OutputPath>\r\n    <DefineConsta" +
+                    "nts>TRACE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <Warning" +
+                    "Level>4</WarningLevel>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <Reference Includ" +
+                    "e=\"System\" />\r\n    <Reference Include=\"System.Core\" />\r\n    <Reference Include=\"" +
+                    "System.Xml.Linq\" />\r\n    <Reference Include=\"System.Data.DataSetExtensions\" />\r\n" +
+                    "    <Reference Include=\"Microsoft.CSharp\" />\r\n    <Reference Include=\"System.Dat" +
+                    "a\" />\r\n    <Reference Include=\"System.Xml\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n  " +
+                    "  <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n  </ItemGroup>\r\n  <Import Pr" +
+                    "oject=\"$(MSBuildToolsPath)\\Microsoft.CSharp.targets\" />\r\n  <!-- To modify your b" +
+                    "uild process, add your task inside one of the targets below and uncomment it. \r\n" +
+                    "       Other similar extension points exist, see Microsoft.Common.targets.\r\n  <T" +
+                    "arget Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  </Target" +
+                    ">\r\n  -->\r\n</Project>");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Junior\Projetos\GITHUB.COM\builder\Builder.Template\Template\AssemblyInfoTemplate.tt"
+        #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
 
-private string @__namespaceNameField;
+private string @__projectGuidField;
 
 /// <summary>
-/// Access the _namespaceName parameter of the template.
+/// Access the _projectGuid parameter of the template.
 /// </summary>
-private string _namespaceName
+private string _projectGuid
 {
     get
     {
-        return this.@__namespaceNameField;
+        return this.@__projectGuidField;
     }
 }
 
-private string @__guidField;
+private string @__rootNamespaceField;
 
 /// <summary>
-/// Access the _guid parameter of the template.
+/// Access the _rootNamespace parameter of the template.
 /// </summary>
-private string _guid
+private string _rootNamespace
 {
     get
     {
-        return this.@__guidField;
+        return this.@__rootNamespaceField;
     }
 }
 
-private int @__yearField;
+private string @__assemblyNameField;
 
 /// <summary>
-/// Access the _year parameter of the template.
+/// Access the _assemblyName parameter of the template.
 /// </summary>
-private int _year
+private string _assemblyName
 {
     get
     {
-        return this.@__yearField;
-    }
-}
-
-private string @__versionField;
-
-/// <summary>
-/// Access the _version parameter of the template.
-/// </summary>
-private string _version
-{
-    get
-    {
-        return this.@__versionField;
+        return this.@__assemblyNameField;
     }
 }
 
@@ -166,60 +129,46 @@ public virtual void Initialize()
 {
     if ((this.Errors.HasErrors == false))
     {
-bool _namespaceNameValueAcquired = false;
-if (this.Session.ContainsKey("_namespaceName"))
+bool _projectGuidValueAcquired = false;
+if (this.Session.ContainsKey("_projectGuid"))
 {
-    this.@__namespaceNameField = ((string)(this.Session["_namespaceName"]));
-    _namespaceNameValueAcquired = true;
+    this.@__projectGuidField = ((string)(this.Session["_projectGuid"]));
+    _projectGuidValueAcquired = true;
 }
-if ((_namespaceNameValueAcquired == false))
+if ((_projectGuidValueAcquired == false))
 {
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_namespaceName");
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_projectGuid");
     if ((data != null))
     {
-        this.@__namespaceNameField = ((string)(data));
+        this.@__projectGuidField = ((string)(data));
     }
 }
-bool _guidValueAcquired = false;
-if (this.Session.ContainsKey("_guid"))
+bool _rootNamespaceValueAcquired = false;
+if (this.Session.ContainsKey("_rootNamespace"))
 {
-    this.@__guidField = ((string)(this.Session["_guid"]));
-    _guidValueAcquired = true;
+    this.@__rootNamespaceField = ((string)(this.Session["_rootNamespace"]));
+    _rootNamespaceValueAcquired = true;
 }
-if ((_guidValueAcquired == false))
+if ((_rootNamespaceValueAcquired == false))
 {
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_guid");
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_rootNamespace");
     if ((data != null))
     {
-        this.@__guidField = ((string)(data));
+        this.@__rootNamespaceField = ((string)(data));
     }
 }
-bool _yearValueAcquired = false;
-if (this.Session.ContainsKey("_year"))
+bool _assemblyNameValueAcquired = false;
+if (this.Session.ContainsKey("_assemblyName"))
 {
-    this.@__yearField = ((int)(this.Session["_year"]));
-    _yearValueAcquired = true;
+    this.@__assemblyNameField = ((string)(this.Session["_assemblyName"]));
+    _assemblyNameValueAcquired = true;
 }
-if ((_yearValueAcquired == false))
+if ((_assemblyNameValueAcquired == false))
 {
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_year");
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_assemblyName");
     if ((data != null))
     {
-        this.@__yearField = ((int)(data));
-    }
-}
-bool _versionValueAcquired = false;
-if (this.Session.ContainsKey("_version"))
-{
-    this.@__versionField = ((string)(this.Session["_version"]));
-    _versionValueAcquired = true;
-}
-if ((_versionValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_version");
-    if ((data != null))
-    {
-        this.@__versionField = ((string)(data));
+        this.@__assemblyNameField = ((string)(data));
     }
 }
 
@@ -240,7 +189,7 @@ if ((_versionValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
-    public class AssemblyInfoTemplateBase
+    public class XmlCsProjTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

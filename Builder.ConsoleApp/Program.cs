@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Builder.ApplicationService;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,14 +11,15 @@ namespace Builder.ConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
             // Classe gerada em RunTime, esse serve ;)
             Console.WriteLine("Digite o nome do projeto:");
-            var projectName = Console.ReadLine();
-            
-            Builder.Template.Builder builder = new Template.Builder();
-            var baseDir = builder.GenerateOutputBaseDir();
-            builder.Build(baseDir, projectName);
+            var solutionName = Console.ReadLine();
+
+            var builderService = new BuilderService();
+            var baseDir = builderService.GenerateOutputPath(solutionName);
+            var templateLibraryName = "csharp";
+            builderService.Builder(templateLibraryName, solutionName, baseDir);
 
             Console.WriteLine();
             Console.WriteLine("----------------------------------------------------------------------------------------------------");

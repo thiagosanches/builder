@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Reflection;
+using Builder.ApplicationService;
 
 namespace Builder.Unit
 {
@@ -10,9 +11,10 @@ namespace Builder.Unit
         [TestMethod]
         public void BuildSingleProjectBusiness()
         {
-            Builder.Template.Builder builder = new Template.Builder();
-            var baseDir = builder.GenerateOutputBaseDir();
-            builder.Build(baseDir, "MyTemplateTest");
+            var builderService = new BuilderService();
+            var solutionName = "MyTemplateTest";
+            var baseDir = builderService.GenerateOutputPath(solutionName);
+            builderService.Builder("csharp", solutionName, baseDir);
 
             Assert.IsTrue(CompileProject(System.IO.Path.Combine(baseDir, "MyTemplateTest.Business", "MyTemplateTest.Business.csproj")));
         }
