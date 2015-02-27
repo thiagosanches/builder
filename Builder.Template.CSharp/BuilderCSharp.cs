@@ -11,7 +11,7 @@ using Builder.Template.CSharp.Template;
 
 namespace Builder.Template.CSharp
 {
-    public class Builder : IBuilder
+    public class BuilderCSharp : IBuilder
     {
         public enum Layer
         {
