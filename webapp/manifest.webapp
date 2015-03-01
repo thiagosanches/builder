@@ -1,9 +1,13 @@
 {
-    "name": "My sample app",
-    "package_path" : "https://www.dropbox.com/s/hrzwwz0f95jm04a/teste.zip?dl=1",
-    "version": "1",
-    "developer": {
-        "name": "A. Developer",
-        "url": "http://my-server.com"
-    }
+  "name": "teste",
+  "description": "A Hello World app",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/icons/icon16x16.png",
+    "48": "/icons/icon48x48.png",
+    "60": "/icons/icon60x60.png",
+    "128": "/icons/icon128x128.png"
+  },
+  "type": "privileged",
+  "permissions": {}
 }
