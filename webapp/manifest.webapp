@@ -1,0 +1,9 @@
+{
+    "name": "My sample app",
+    "package_path" : "https://www.dropbox.com/s/hrzwwz0f95jm04a/teste.zip?dl=1",
+    "version": "1",
+    "developer": {
+        "name": "A. Developer",
+        "url": "http://my-server.com"
+    }
+}

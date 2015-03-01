@@ -1,0 +1,15 @@
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.ApplicationService.dll
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.ApplicationService.pdb
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.Core.dll
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.Dispatcher.dll
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.Template.Interface.dll
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.Core.pdb
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.Dispatcher.pdb
+C:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Builder.Template.Interface.pdb
+C:\Users\thiago\builder\Builder.ApplicationService\obj\Debug\Builder.ApplicationService.csprojResolveAssemblyReference.cache
+C:\Users\thiago\builder\Builder.ApplicationService\obj\Debug\Builder.ApplicationService.dll
+C:\Users\thiago\builder\Builder.ApplicationService\obj\Debug\Builder.ApplicationService.pdb
+c:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Microsoft.Practices.Unity.xml
+c:\Users\thiago\builder\Builder.ApplicationService\bin\Debug\Microsoft.Practices.Unity.Configuration.xml

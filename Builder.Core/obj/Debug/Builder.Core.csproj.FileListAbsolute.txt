@@ -1,0 +1,14 @@
+C:\Users\thiago\builder\Builder.Core\bin\Debug\Builder.Core.dll
+C:\Users\thiago\builder\Builder.Core\bin\Debug\Builder.Core.pdb
+C:\Users\thiago\builder\Builder.Core\bin\Debug\Builder.Template.Interface.dll
+C:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\thiago\builder\Builder.Core\bin\Debug\Builder.Template.Interface.pdb
+C:\Users\thiago\builder\Builder.Core\obj\Debug\Builder.Core.csprojResolveAssemblyReference.cache
+C:\Users\thiago\builder\Builder.Core\obj\Debug\Builder.Core.dll
+C:\Users\thiago\builder\Builder.Core\obj\Debug\Builder.Core.pdb
+c:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+c:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.Unity.pdb
+c:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.pdb
+c:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+c:\Users\thiago\builder\Builder.Core\bin\Debug\Microsoft.Practices.ServiceLocation.pdb

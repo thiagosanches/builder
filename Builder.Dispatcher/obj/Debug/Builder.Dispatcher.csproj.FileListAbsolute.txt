@@ -1,0 +1,5 @@
+C:\Users\thiago\builder\Builder.Dispatcher\bin\Debug\Builder.Dispatcher.dll
+C:\Users\thiago\builder\Builder.Dispatcher\bin\Debug\Builder.Dispatcher.pdb
+C:\Users\thiago\builder\Builder.Dispatcher\obj\Debug\Builder.Dispatcher.csprojResolveAssemblyReference.cache
+C:\Users\thiago\builder\Builder.Dispatcher\obj\Debug\Builder.Dispatcher.dll
+C:\Users\thiago\builder\Builder.Dispatcher\obj\Debug\Builder.Dispatcher.pdb

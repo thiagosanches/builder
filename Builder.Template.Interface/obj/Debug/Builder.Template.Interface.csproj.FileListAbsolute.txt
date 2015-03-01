@@ -1,0 +1,5 @@
+C:\Users\thiago\builder\Builder.Template.Interface\bin\Debug\Builder.Template.Interface.dll
+C:\Users\thiago\builder\Builder.Template.Interface\bin\Debug\Builder.Template.Interface.pdb
+C:\Users\thiago\builder\Builder.Template.Interface\obj\Debug\Builder.Template.Interface.csprojResolveAssemblyReference.cache
+C:\Users\thiago\builder\Builder.Template.Interface\obj\Debug\Builder.Template.Interface.dll
+C:\Users\thiago\builder\Builder.Template.Interface\obj\Debug\Builder.Template.Interface.pdb

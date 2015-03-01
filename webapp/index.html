@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <p>Packaged app installation page</p>
+    <script>
+      // This URL must be a full url.
+      var manifestUrl = 'https://dl.dropboxusercontent.com/content_link/AvYrUUS4MotRdJrpZqpgqVQwmVVu32hk2PpgrQeOJChrK6fgBw8s92rPZdZjxYH5?dl=1';
+      var req = navigator.mozApps.installPackage(manifestUrl);
+      req.onsuccess = function() {
+        alert(this.result.origin);
+      };
+      req.onerror = function() {
+        alert(this.error.name);
+      };
+    </script>
+  </body>
+</html>
