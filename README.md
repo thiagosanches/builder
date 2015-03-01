@@ -12,3 +12,4 @@ TODO
 * Add Web project option (WebForms, MVC) (example: -w "WebForms", -w "MVC")
 * Add Console application project option (example: -c)
 * Configure Data layer to use EF, EnterpriseLibrary.Data, ADO.NET (example: -d "EF")
+
