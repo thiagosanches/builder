@@ -1,4 +1,5 @@
 ﻿using Builder.ApplicationService;
+using Builder.ApplicationService.ConsoleApp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,22 +11,38 @@ namespace Builder.ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
-        {   
-            // Classe gerada em RunTime, esse serve ;)
-            Console.WriteLine("Digite o nome do projeto:");
-            var solutionName = Console.ReadLine();
+        private const int CONSOLE_SUCCESS = 0;
+        private const int CONSOLE_ERROR = 1;
 
-            var builderService = new BuilderService();
-            var baseDir = builderService.GenerateOutputPath(solutionName);
-            var templateLibraryName = "csharp";
-            builderService.Builder(templateLibraryName, solutionName, baseDir);
+        static int Main(string[] args)
+        {
+            int code = CONSOLE_SUCCESS;
+            try
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                var parser = new BuilderCommandParser();
+                parser.Parser(args);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
 
-            Console.WriteLine();
-            Console.WriteLine("----------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Arquivo gerado na pasta: " + baseDir);
-            Console.WriteLine("----------------------------------------------------------------------------------------------------");
-            Console.Read();
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine(ex.InnerException.Message);
+                    Console.WriteLine(ex.InnerException.StackTrace);
+                }
+
+                code = CONSOLE_ERROR;
+            }
+            finally
+            {
+                Console.ResetColor();
+            }
+
+            return code;
         }
     }
 }
