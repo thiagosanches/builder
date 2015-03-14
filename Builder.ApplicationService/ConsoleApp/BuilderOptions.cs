@@ -22,6 +22,9 @@ namespace Builder.ApplicationService.ConsoleApp
         [Option('t', "template", HelpText = "Determines the template name for use with base the code output", Required = true)]
         public string TemplateName { get; set; }
 
+        [Option('o', "output", HelpText = "Determines the output dir", Required = false, DefaultValue = "solutions")]
+        public string OutputDir { get; set; }
+
         [HelpOption]
         public string GetUsage()
         {
@@ -30,5 +33,6 @@ namespace Builder.ApplicationService.ConsoleApp
             help.AddDashesToOption = false;
             return help;
         }
+
     }
 }

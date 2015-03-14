@@ -16,10 +16,11 @@ namespace Builder.ApplicationService.ConsoleApp
             if (CommandLine.Parser.Default.ParseArguments(args, builderOptions))
             {
                 if (builderOptions.Verbose)
-                    Console.WriteLine("Start generation for application name '{0}' and template '{1}.'", builderOptions.Namespace, builderOptions.TemplateName);
+                    Console.WriteLine("Start generation for application name '{0}' with template '{1} in folder {2}.'", builderOptions.Namespace, builderOptions.TemplateName, builderOptions.OutputDir);
 
                 var builderService = new BuilderService();
-                var baseDir = builderService.GenerateOutputPath(builderOptions.Namespace);
+                var baseDir = builderService.GenerateOutputPath(builderOptions.Namespace, builderOptions.OutputDir);
+
                 builderService.Builder(builderOptions.TemplateName, builderOptions.Namespace, baseDir);
             }
         }
