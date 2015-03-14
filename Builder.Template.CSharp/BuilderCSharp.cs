@@ -28,7 +28,6 @@ namespace Builder.Template.CSharp
                 this.WriteLibrary(baseDir, projectName, Layer.Business);
                 this.WriteLibrary(baseDir, projectName, Layer.Model);
                 this.WriteLibrary(baseDir, projectName, Layer.Data);
-                this.WriteLibrary(baseDir, projectName, Layer.Web);
             }
             catch (Exception ex)
             {

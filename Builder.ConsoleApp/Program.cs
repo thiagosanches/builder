@@ -17,7 +17,7 @@ namespace Builder.ConsoleApp
             var solutionName = Console.ReadLine();
 
             var builderService = new BuilderService();
-            var baseDir = builderService.GenerateOutputPath(solutionName);
+            var baseDir = builderService.GenerateOutputPath("tests", solutionName);
             var templateLibraryName = "csharp";
             builderService.Builder(templateLibraryName, solutionName, baseDir);
 
