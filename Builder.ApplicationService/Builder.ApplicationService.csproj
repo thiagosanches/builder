@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuilderService.cs" />
+    <Compile Include="ConsoleApp\BuilderOptions.cs" />
+    <Compile Include="ConsoleApp\BuilderCommandParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +60,9 @@
       <Project>{53f70169-ecda-4328-be9f-baae821fb12e}</Project>
       <Name>Builder.Template.Interface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

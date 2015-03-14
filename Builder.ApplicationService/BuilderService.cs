@@ -16,25 +16,12 @@ namespace Builder.ApplicationService
             builder.Build(baseDir, projectName);
         }
 
-        public string GenerateOutputPath(string baseDir, string solutionName, string path = null)
+        public string GenerateOutputPath(string solutionName, string outputDir)
         {
-            if (string.IsNullOrWhiteSpace(path))
-            {
-                path = Path.Combine(Environment.CurrentDirectory, baseDir);
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-            }
-
-            path +=  @"\" + solutionName;         
-            return path;
-        }
-
-        public void CreateDirectory(string path)
-        {
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            else
-                throw new Exception(string.Format("Path '{0}' already exists.", path));
+            // Path.Combine(Environment.CurrentDirectory, outputDir);
+            if (!Directory.Exists(outputDir))
+                Directory.CreateDirectory(outputDir);
+            return Path.Combine(outputDir, solutionName);
         }
     }
 }

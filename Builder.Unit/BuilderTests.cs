@@ -30,7 +30,7 @@ namespace Builder.Unit
         [TestMethod]
         public void BuildSingleProjectBusiness()
         {
-            var baseDir = BuilderService.GenerateOutputPath(baseDirectory, SolutionName);
+            var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             BuilderService.Builder(CSHARP, SolutionName, baseDir);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,
@@ -41,7 +41,7 @@ namespace Builder.Unit
         [TestMethod]
         public void BuildSingleProjectData()
         {
-            var baseDir = BuilderService.GenerateOutputPath(baseDirectory, SolutionName);
+            var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             BuilderService.Builder(CSHARP, SolutionName, baseDir);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,
@@ -52,7 +52,7 @@ namespace Builder.Unit
         [TestMethod]
         public void BuildSingleProjectModel()
         {
-            var baseDir = BuilderService.GenerateOutputPath(baseDirectory, SolutionName);
+            var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             BuilderService.Builder(CSHARP, SolutionName, baseDir);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,
