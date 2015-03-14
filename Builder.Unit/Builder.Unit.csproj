@@ -35,6 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -52,12 +63,25 @@
   <ItemGroup>
     <Compile Include="BuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Builder.Template\Builder.Template.csproj">
-      <Project>{76c5643a-979f-493d-bdee-4c39558a4009}</Project>
-      <Name>Builder.Template</Name>
+    <ProjectReference Include="..\Builder.ApplicationService\Builder.ApplicationService.csproj">
+      <Project>{a21db1ad-5276-4c1d-acb3-e9c72151a28b}</Project>
+      <Name>Builder.ApplicationService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Builder.Template.CSharp\Builder.Template.CSharp.csproj">
+      <Project>{552ccb8d-da2f-4c0a-8ad5-2277dddb9dcc}</Project>
+      <Name>Builder.Template.CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Builder.Template.Interface\Builder.Template.Interface.csproj">
+      <Project>{53f70169-ecda-4328-be9f-baae821fb12e}</Project>
+      <Name>Builder.Template.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

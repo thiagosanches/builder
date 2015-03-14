@@ -6,10 +6,12 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Builder.Template.Interface;
+using Builder.Template.CSharp.Template;
 
-namespace Builder.Template
+namespace Builder.Template.CSharp
 {
-    public class Builder
+    public class BuilderCSharp : IBuilder
     {
         public enum Layer
         {
@@ -26,7 +28,6 @@ namespace Builder.Template
                 this.WriteLibrary(baseDir, projectName, Layer.Business);
                 this.WriteLibrary(baseDir, projectName, Layer.Model);
                 this.WriteLibrary(baseDir, projectName, Layer.Data);
-                this.WriteLibrary(baseDir, projectName, Layer.Web);
             }
             catch (Exception ex)
             {
@@ -58,18 +59,11 @@ namespace Builder.Template
             File.WriteAllText(fullPath, content, Encoding.UTF8);
         }
 
-        public string GenerateOutputBaseDir()
-        {
-            var baseDir = Environment.CurrentDirectory + @"\output_" + DateTime.Now.ToString("ddMMyyyyhhmmss");
-            Directory.CreateDirectory(baseDir);
-            return baseDir;
-        }
-
         #region Create files by template t4
 
         private string CreateCsProj(string projectName, Layer layer)
         {
-            var template = new Template.XmlCsProjTemplate();
+            var template = new XmlCsProjTemplate();
             template.Session = new Dictionary<string, object>();
             template.Session.Add("_projectGuid", "{" + Guid.NewGuid().ToString().ToUpper() + "}");
             template.Session.Add("_rootNamespace", string.Format("{0}.{1}", projectName, layer));
@@ -80,7 +74,7 @@ namespace Builder.Template
 
         private string CreateAssemblyInfo(string projectName, Layer layer)
         {
-            var template = new Template.AssemblyInfoTemplate();
+            var template = new AssemblyInfoTemplate();
             template.Session = new Dictionary<string, object>();
             template.Session.Add("_namespaceName", projectName + layer);
             template.Session.Add("_guid", Guid.NewGuid().ToString());
