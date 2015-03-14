@@ -1,7 +1,0 @@
-C:\Users\thiago\builder\Builder.Template.CSharp\bin\Debug\Builder.Template.CSharp.dll
-C:\Users\thiago\builder\Builder.Template.CSharp\bin\Debug\Builder.Template.CSharp.pdb
-C:\Users\thiago\builder\Builder.Template.CSharp\bin\Debug\Builder.Template.Interface.dll
-C:\Users\thiago\builder\Builder.Template.CSharp\bin\Debug\Builder.Template.Interface.pdb
-C:\Users\thiago\builder\Builder.Template.CSharp\obj\Debug\Builder.Template.CSharp.csprojResolveAssemblyReference.cache
-C:\Users\thiago\builder\Builder.Template.CSharp\obj\Debug\Builder.Template.CSharp.dll
-C:\Users\thiago\builder\Builder.Template.CSharp\obj\Debug\Builder.Template.CSharp.pdb
