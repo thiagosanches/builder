@@ -30,94 +30,140 @@ namespace Builder.Template.CSharp.Template
         {
             this.Write(@"<?xml version=""1.0"" encoding=""utf-8""?>
 <Project ToolsVersion=""4.0"" DefaultTargets=""Build"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
-  <Import Project=""$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"" Condition=""Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"" />
-  <PropertyGroup>
+    <Import Project=""$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"" Condition=""Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"" />
+    <PropertyGroup>
     <Configuration Condition="" '$(Configuration)' == '' "">Debug</Configuration>
     <Platform Condition="" '$(Platform)' == '' "">AnyCPU</Platform>
     <ProjectGuid>");
             
-            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_projectGuid));
+            #line 14 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@__project__.Guid));
             
             #line default
             #line hidden
             this.Write("</ProjectGuid>\r\n    <OutputType>Library</OutputType>\r\n    <AppDesignerFolder>Prop" +
                     "erties</AppDesignerFolder>\r\n    <RootNamespace>");
             
-            #line 19 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_rootNamespace));
+            #line 17 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@__project__.Name));
             
             #line default
             #line hidden
             this.Write("</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 20 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_assemblyName));
+            #line 18 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@__project__.Name));
             
             #line default
             #line hidden
-            this.Write("</AssemblyName>\r\n    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>\r\n    <" +
-                    "FileAlignment>512</FileAlignment>\r\n  </PropertyGroup>\r\n  <PropertyGroup Conditio" +
-                    "n=\" \'$(Configuration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <DebugSymbols>true<" +
-                    "/DebugSymbols>\r\n    <DebugType>full</DebugType>\r\n    <Optimize>false</Optimize>\r" +
-                    "\n    <OutputPath>bin\\Debug\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</Defi" +
-                    "neConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLevel>4</Warnin" +
-                    "gLevel>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(Pl" +
-                    "atform)\' == \'Release|AnyCPU\' \">\r\n    <DebugType>pdbonly</DebugType>\r\n    <Optimi" +
-                    "ze>true</Optimize>\r\n    <OutputPath>bin\\Release\\</OutputPath>\r\n    <DefineConsta" +
-                    "nts>TRACE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <Warning" +
-                    "Level>4</WarningLevel>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <Reference Includ" +
-                    "e=\"System\" />\r\n    <Reference Include=\"System.Core\" />\r\n    <Reference Include=\"" +
-                    "System.Xml.Linq\" />\r\n    <Reference Include=\"System.Data.DataSetExtensions\" />\r\n" +
-                    "    <Reference Include=\"Microsoft.CSharp\" />\r\n    <Reference Include=\"System.Dat" +
-                    "a\" />\r\n    <Reference Include=\"System.Xml\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n  " +
-                    "  <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n  </ItemGroup>\r\n  <Import Pr" +
-                    "oject=\"$(MSBuildToolsPath)\\Microsoft.CSharp.targets\" />\r\n  <!-- To modify your b" +
-                    "uild process, add your task inside one of the targets below and uncomment it. \r\n" +
-                    "       Other similar extension points exist, see Microsoft.Common.targets.\r\n  <T" +
-                    "arget Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  </Target" +
-                    ">\r\n  -->\r\n</Project>");
+            this.Write(@"</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition="" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition="" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+    <Reference Include=""System"" />
+    <Reference Include=""System.Core"" />
+    <Reference Include=""System.Xml.Linq"" />
+    <Reference Include=""System.Data.DataSetExtensions"" />
+    <Reference Include=""Microsoft.CSharp"" />
+    <Reference Include=""System.Data"" />
+    <Reference Include=""System.Xml"" />
+    </ItemGroup>
+    <ItemGroup>
+    <Compile Include=""Properties\AssemblyInfo.cs"" />
+    </ItemGroup>
+  ");
+            
+            #line 51 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+ if (__project__.ProjectsReferences.Count > 0) { 
+            
+            #line default
+            #line hidden
+            this.Write("        ");
+            
+            #line 52 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+ foreach (var pRef in __project__.ProjectsReferences) { 
+            
+            #line default
+            #line hidden
+            this.Write("    <ItemGroup>\r\n        <ProjectReference Include=\"");
+            
+            #line 54 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@__project__.GetRelativePathToProjectRef(pRef)));
+            
+            #line default
+            #line hidden
+            this.Write("\">\r\n            <Project>");
+            
+            #line 55 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(pRef.Guid));
+            
+            #line default
+            #line hidden
+            this.Write("</Project>\r\n            <Name>");
+            
+            #line 56 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(pRef.Name));
+            
+            #line default
+            #line hidden
+            this.Write("</Name>\r\n        </ProjectReference>\r\n    </ItemGroup>\r\n    ");
+            
+            #line 59 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write("  ");
+            
+            #line 60 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write(@"    <Import Project=""$(MSBuildToolsPath)\Microsoft.CSharp.targets"" />
+    
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+
+        <Target Name=""BeforeBuild"">
+        </Target>
+        <Target Name=""AfterBuild"">
+        </Target>
+    -->
+</Project>");
             return this.GenerationEnvironment.ToString();
         }
         
         #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\XmlCsProjTemplate.tt"
 
-private string @__projectGuidField;
+private global::Builder.Dispatcher.Project ___project__Field;
 
 /// <summary>
-/// Access the _projectGuid parameter of the template.
+/// Access the __project__ parameter of the template.
 /// </summary>
-private string _projectGuid
+private global::Builder.Dispatcher.Project @__project__
 {
     get
     {
-        return this.@__projectGuidField;
-    }
-}
-
-private string @__rootNamespaceField;
-
-/// <summary>
-/// Access the _rootNamespace parameter of the template.
-/// </summary>
-private string _rootNamespace
-{
-    get
-    {
-        return this.@__rootNamespaceField;
-    }
-}
-
-private string @__assemblyNameField;
-
-/// <summary>
-/// Access the _assemblyName parameter of the template.
-/// </summary>
-private string _assemblyName
-{
-    get
-    {
-        return this.@__assemblyNameField;
+        return this.___project__Field;
     }
 }
 
@@ -129,46 +175,18 @@ public virtual void Initialize()
 {
     if ((this.Errors.HasErrors == false))
     {
-bool _projectGuidValueAcquired = false;
-if (this.Session.ContainsKey("_projectGuid"))
+bool @__project__ValueAcquired = false;
+if (this.Session.ContainsKey("__project__"))
 {
-    this.@__projectGuidField = ((string)(this.Session["_projectGuid"]));
-    _projectGuidValueAcquired = true;
+    this.___project__Field = ((global::Builder.Dispatcher.Project)(this.Session["__project__"]));
+    @__project__ValueAcquired = true;
 }
-if ((_projectGuidValueAcquired == false))
+if ((@__project__ValueAcquired == false))
 {
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_projectGuid");
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("__project__");
     if ((data != null))
     {
-        this.@__projectGuidField = ((string)(data));
-    }
-}
-bool _rootNamespaceValueAcquired = false;
-if (this.Session.ContainsKey("_rootNamespace"))
-{
-    this.@__rootNamespaceField = ((string)(this.Session["_rootNamespace"]));
-    _rootNamespaceValueAcquired = true;
-}
-if ((_rootNamespaceValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_rootNamespace");
-    if ((data != null))
-    {
-        this.@__rootNamespaceField = ((string)(data));
-    }
-}
-bool _assemblyNameValueAcquired = false;
-if (this.Session.ContainsKey("_assemblyName"))
-{
-    this.@__assemblyNameField = ((string)(this.Session["_assemblyName"]));
-    _assemblyNameValueAcquired = true;
-}
-if ((_assemblyNameValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_assemblyName");
-    if ((data != null))
-    {
-        this.@__assemblyNameField = ((string)(data));
+        this.___project__Field = ((global::Builder.Dispatcher.Project)(data));
     }
 }
 

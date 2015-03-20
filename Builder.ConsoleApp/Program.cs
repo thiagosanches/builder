@@ -1,5 +1,6 @@
 ﻿using Builder.ApplicationService;
-using Builder.ApplicationService.ConsoleApp;
+using Builder.ApplicationService.Command;
+using Builder.Dispatcher;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,8 +21,8 @@ namespace Builder.ConsoleApp
             try
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                var parser = new BuilderCommandParser();
-                parser.Parser(args);
+                var parser = new CommandRequest();
+                parser.Request(args);
             }
             catch (Exception ex)
             {

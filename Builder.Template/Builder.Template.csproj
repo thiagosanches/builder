@@ -7,8 +7,8 @@
     <ProjectGuid>{53F70169-ECDA-4328-BE9F-BAAE821FB12E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Builder.Template.Interface</RootNamespace>
-    <AssemblyName>Builder.Template.Interface</AssemblyName>
+    <RootNamespace>Builder.Template</RootNamespace>
+    <AssemblyName>Builder.Template</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="IBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Builder.Dispatcher\Builder.Dispatcher.csproj">
+      <Project>{0235f1d9-6904-46f1-8798-92ffbf8b0a35}</Project>
+      <Name>Builder.Dispatcher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

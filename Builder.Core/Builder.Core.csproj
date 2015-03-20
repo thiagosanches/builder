@@ -54,13 +54,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Builder.Template.Interface\Builder.Template.Interface.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Builder.Template\Builder.Template.csproj">
       <Project>{53f70169-ecda-4328-be9f-baae821fb12e}</Project>
-      <Name>Builder.Template.Interface</Name>
+      <Name>Builder.Template</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

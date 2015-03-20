@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Builder.ApplicationService.ConsoleApp
+namespace Builder.ApplicationService.Command
 {
     /// <summary>
     /// Link: http://commandline.codeplex.com/
     /// </summary>
-    public class BuilderOptions
+    public class CommandParams
     {
         [Option('v', "verbose", DefaultValue = true, HelpText = "Prints all messages to standard output.")]
         public bool Verbose { get; set; }
@@ -24,6 +24,9 @@ namespace Builder.ApplicationService.ConsoleApp
 
         [Option('o', "output", HelpText = "Determines the output dir", Required = false, DefaultValue = "solutions")]
         public string OutputDir { get; set; }
+
+        [Option('e', "expression", HelpText = "Specify builder expression to create or edit your application", Required = false)]
+        public string Expression { get; set; }
 
         [HelpOption]
         public string GetUsage()

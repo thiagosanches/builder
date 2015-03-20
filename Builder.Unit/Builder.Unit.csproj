@@ -70,13 +70,17 @@
       <Project>{a21db1ad-5276-4c1d-acb3-e9c72151a28b}</Project>
       <Name>Builder.ApplicationService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Builder.Dispatcher\Builder.Dispatcher.csproj">
+      <Project>{0235f1d9-6904-46f1-8798-92ffbf8b0a35}</Project>
+      <Name>Builder.Dispatcher</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Builder.Template.CSharp\Builder.Template.CSharp.csproj">
       <Project>{552ccb8d-da2f-4c0a-8ad5-2277dddb9dcc}</Project>
       <Name>Builder.Template.CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Builder.Template.Interface\Builder.Template.Interface.csproj">
+    <ProjectReference Include="..\Builder.Template\Builder.Template.csproj">
       <Project>{53f70169-ecda-4328-be9f-baae821fb12e}</Project>
-      <Name>Builder.Template.Interface</Name>
+      <Name>Builder.Template</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

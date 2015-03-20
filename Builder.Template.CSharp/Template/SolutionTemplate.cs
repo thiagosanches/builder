@@ -18,9 +18,9 @@ namespace Builder.Template.CSharp.Template
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
+    #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
-    public partial class AssemblyInfoTemplate : AssemblyInfoTemplateBase
+    public partial class SolutionTemplate : SolutionTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,133 +28,111 @@ namespace Builder.Template.CSharp.Template
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle(""");
+            this.Write("\r\nMicrosoft Visual Studio Solution File, Format Version 12.00\r\n# Visual Studio 20" +
+                    "13\r\nVisualStudioVersion = 12.0.31101.0\r\nMinimumVisualStudioVersion = 10.0.40219." +
+                    "1\r\n\r\n");
             
-            #line 19 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_namespaceName));
+            #line 14 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+ if (__app__.Projects.Count > 0) { 
             
             #line default
             #line hidden
-            this.Write("\")]\r\n[assembly: AssemblyDescription(\"\")]\r\n[assembly: AssemblyConfiguration(\"\")]\r\n" +
-                    "[assembly: AssemblyCompany(\"\")]\r\n[assembly: AssemblyProduct(\"");
             
-            #line 23 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_namespaceName));
+            #line 15 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+ foreach (var project in __app__.Projects) { 
             
             #line default
             #line hidden
-            this.Write("\")]\r\n[assembly: AssemblyCopyright(\"Copyright ©  ");
+            this.Write("Project(\"");
             
-            #line 24 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DateTime.Now.Year));
-            
-            #line default
-            #line hidden
-            this.Write(@""")]
-[assembly: AssemblyTrademark("""")]
-[assembly: AssemblyCulture("""")]
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
-
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid(""");
-            
-            #line 34 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_guid));
+            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@__app__.Guid));
             
             #line default
             #line hidden
-            this.Write(@""")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion(""1.0.*"")]
-[assembly: AssemblyVersion(""");
+            this.Write("\") = \"");
             
-            #line 46 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_version));
+            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(project.Name));
             
             #line default
             #line hidden
-            this.Write("\")]\r\n[assembly: AssemblyFileVersion(\"");
+            this.Write("\", \"");
             
-            #line 47 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_version));
+            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@__app__.GetRelativePathToSolution(project)));
             
             #line default
             #line hidden
-            this.Write("\")]");
+            this.Write("\", \"");
+            
+            #line 16 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(project.Guid));
+            
+            #line default
+            #line hidden
+            this.Write("\"\r\nEndProject\r\n");
+            
+            #line 18 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            
+            #line 19 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\nGlobal\r\n\tGlobalSection(SolutionConfigurationPlatforms) = preSolution\r\n\t\tDebug|A" +
+                    "ny CPU = Debug|Any CPU\r\n\t\tRelease|Any CPU = Release|Any CPU\r\n\tEndGlobalSection\r\n" +
+                    "\tGlobalSection(ProjectConfigurationPlatforms) = postSolution\r\n\t\t{3DED97EA-4375-4" +
+                    "C2D-BDF3-2C7B7DA0B052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{3DED97EA-4375" +
+                    "-4C2D-BDF3-2C7B7DA0B052}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{3DED97EA-4375" +
+                    "-4C2D-BDF3-2C7B7DA0B052}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{3DED97E" +
+                    "A-4375-4C2D-BDF3-2C7B7DA0B052}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{A1E" +
+                    "A124F-46F2-4E08-84CB-741831363D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{A" +
+                    "1EA124F-46F2-4E08-84CB-741831363D75}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{A" +
+                    "1EA124F-46F2-4E08-84CB-741831363D75}.Release|Any CPU.ActiveCfg = Release|Any CPU" +
+                    "\r\n\t\t{A1EA124F-46F2-4E08-84CB-741831363D75}.Release|Any CPU.Build.0 = Release|Any" +
+                    " CPU\r\n\t\t{F5DC5E41-0AE6-4811-8105-4A48A1DD2C0D}.Debug|Any CPU.ActiveCfg = Debug|A" +
+                    "ny CPU\r\n\t\t{F5DC5E41-0AE6-4811-8105-4A48A1DD2C0D}.Debug|Any CPU.Build.0 = Debug|A" +
+                    "ny CPU\r\n\t\t{F5DC5E41-0AE6-4811-8105-4A48A1DD2C0D}.Release|Any CPU.ActiveCfg = Rel" +
+                    "ease|Any CPU\r\n\t\t{F5DC5E41-0AE6-4811-8105-4A48A1DD2C0D}.Release|Any CPU.Build.0 =" +
+                    " Release|Any CPU\r\n\t\t{0235F1D9-6904-46F1-8798-92FFBF8B0A35}.Debug|Any CPU.ActiveC" +
+                    "fg = Debug|Any CPU\r\n\t\t{0235F1D9-6904-46F1-8798-92FFBF8B0A35}.Debug|Any CPU.Build" +
+                    ".0 = Debug|Any CPU\r\n\t\t{0235F1D9-6904-46F1-8798-92FFBF8B0A35}.Release|Any CPU.Act" +
+                    "iveCfg = Release|Any CPU\r\n\t\t{0235F1D9-6904-46F1-8798-92FFBF8B0A35}.Release|Any C" +
+                    "PU.Build.0 = Release|Any CPU\r\n\t\t{552CCB8D-DA2F-4C0A-8AD5-2277DDDB9DCC}.Debug|Any" +
+                    " CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{552CCB8D-DA2F-4C0A-8AD5-2277DDDB9DCC}.Debug|A" +
+                    "ny CPU.Build.0 = Debug|Any CPU\r\n\t\t{552CCB8D-DA2F-4C0A-8AD5-2277DDDB9DCC}.Release" +
+                    "|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{552CCB8D-DA2F-4C0A-8AD5-2277DDDB9DCC}.R" +
+                    "elease|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{A21DB1AD-5276-4C1D-ACB3-E9C72151A28" +
+                    "B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{A21DB1AD-5276-4C1D-ACB3-E9C72151A" +
+                    "28B}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{A21DB1AD-5276-4C1D-ACB3-E9C72151A" +
+                    "28B}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{A21DB1AD-5276-4C1D-ACB3-E9C" +
+                    "72151A28B}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{53F70169-ECDA-4328-BE9F" +
+                    "-BAAE821FB12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{53F70169-ECDA-4328-BE" +
+                    "9F-BAAE821FB12E}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{53F70169-ECDA-4328-BE" +
+                    "9F-BAAE821FB12E}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{53F70169-ECDA-4" +
+                    "328-BE9F-BAAE821FB12E}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\tEndGlobalSect" +
+                    "ion\r\n\tGlobalSection(SolutionProperties) = preSolution\r\n\t\tHideSolutionNode = FALS" +
+                    "E\r\n\tEndGlobalSection\r\nEndGlobal");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\AssemblyInfoTemplate.tt"
+        #line 1 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
 
-private string @__namespaceNameField;
+private global::Builder.Dispatcher.Application ___app__Field;
 
 /// <summary>
-/// Access the _namespaceName parameter of the template.
+/// Access the __app__ parameter of the template.
 /// </summary>
-private string _namespaceName
+private global::Builder.Dispatcher.Application @__app__
 {
     get
     {
-        return this.@__namespaceNameField;
-    }
-}
-
-private string @__guidField;
-
-/// <summary>
-/// Access the _guid parameter of the template.
-/// </summary>
-private string _guid
-{
-    get
-    {
-        return this.@__guidField;
-    }
-}
-
-private int @__yearField;
-
-/// <summary>
-/// Access the _year parameter of the template.
-/// </summary>
-private int _year
-{
-    get
-    {
-        return this.@__yearField;
-    }
-}
-
-private string @__versionField;
-
-/// <summary>
-/// Access the _version parameter of the template.
-/// </summary>
-private string _version
-{
-    get
-    {
-        return this.@__versionField;
+        return this.___app__Field;
     }
 }
 
@@ -166,60 +144,18 @@ public virtual void Initialize()
 {
     if ((this.Errors.HasErrors == false))
     {
-bool _namespaceNameValueAcquired = false;
-if (this.Session.ContainsKey("_namespaceName"))
+bool @__app__ValueAcquired = false;
+if (this.Session.ContainsKey("__app__"))
 {
-    this.@__namespaceNameField = ((string)(this.Session["_namespaceName"]));
-    _namespaceNameValueAcquired = true;
+    this.___app__Field = ((global::Builder.Dispatcher.Application)(this.Session["__app__"]));
+    @__app__ValueAcquired = true;
 }
-if ((_namespaceNameValueAcquired == false))
+if ((@__app__ValueAcquired == false))
 {
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_namespaceName");
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("__app__");
     if ((data != null))
     {
-        this.@__namespaceNameField = ((string)(data));
-    }
-}
-bool _guidValueAcquired = false;
-if (this.Session.ContainsKey("_guid"))
-{
-    this.@__guidField = ((string)(this.Session["_guid"]));
-    _guidValueAcquired = true;
-}
-if ((_guidValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_guid");
-    if ((data != null))
-    {
-        this.@__guidField = ((string)(data));
-    }
-}
-bool _yearValueAcquired = false;
-if (this.Session.ContainsKey("_year"))
-{
-    this.@__yearField = ((int)(this.Session["_year"]));
-    _yearValueAcquired = true;
-}
-if ((_yearValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_year");
-    if ((data != null))
-    {
-        this.@__yearField = ((int)(data));
-    }
-}
-bool _versionValueAcquired = false;
-if (this.Session.ContainsKey("_version"))
-{
-    this.@__versionField = ((string)(this.Session["_version"]));
-    _versionValueAcquired = true;
-}
-if ((_versionValueAcquired == false))
-{
-    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("_version");
-    if ((data != null))
-    {
-        this.@__versionField = ((string)(data));
+        this.___app__Field = ((global::Builder.Dispatcher.Application)(data));
     }
 }
 
@@ -240,7 +176,7 @@ if ((_versionValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
-    public class AssemblyInfoTemplateBase
+    public class SolutionTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

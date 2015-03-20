@@ -6,28 +6,24 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Builder.Template.Interface;
 using Builder.Template.CSharp.Template;
+using Builder.Template;
+using Builder.Dispatcher;
 
 namespace Builder.Template.CSharp
 {
     public class BuilderCSharp : IBuilder
     {
-        public enum Layer
-        {
-            Business,
-            Data,
-            Model,
-            Web
-        }
-
-        public void Build(string baseDir, string projectName)
+        public void Build(Application application)
         {
             try
             {
-                this.WriteLibrary(baseDir, projectName, Layer.Business);
-                this.WriteLibrary(baseDir, projectName, Layer.Model);
-                this.WriteLibrary(baseDir, projectName, Layer.Data);
+                foreach (var project in application.Projects)
+                {
+                    this.WriteLibrary(application.Path, project);
+                }
+
+                this.WriteFile(application.Path, string.Format("{0}.sln", application.Name), this.CreateSolution(application));
             }
             catch (Exception ex)
             {
@@ -35,10 +31,10 @@ namespace Builder.Template.CSharp
             }
         }
 
-        private string WriteLibrary(string baseDir, string projectName, Layer layer)
+        private void WriteLibrary(string baseDir, Project project)
         {
-            string baseDirProject = System.IO.Path.Combine(baseDir, projectName + "." + layer.ToString());
-
+            string baseDirProject = System.IO.Path.Combine(baseDir, project.Name);
+            
             if (!System.IO.Directory.Exists(baseDirProject))
             {
                 string propertiesPath = Path.Combine(baseDirProject, "Properties");
@@ -46,40 +42,45 @@ namespace Builder.Template.CSharp
                 Directory.CreateDirectory(baseDirProject);
                 Directory.CreateDirectory(propertiesPath);
 
-                this.WriteFile(baseDirProject, string.Format("{0}.{1}.csproj", projectName, layer), this.CreateCsProj(projectName, layer));
-                this.WriteFile(baseDirProject, string.Format(@"Properties\AssemblyInfo.cs", projectName, layer), this.CreateAssemblyInfo(projectName, layer));
+                this.WriteFile(baseDirProject, string.Format("{0}.csproj", project.Name), this.CreateCsProj(project));
+                this.WriteFile(baseDirProject, @"Properties\AssemblyInfo.cs", this.CreateAssemblyInfo(project));
             }
-
-            return baseDirProject;
         }
 
         private void WriteFile(string baseDirProject, string fileName, string content)
         {
             string fullPath = System.IO.Path.Combine(baseDirProject, fileName);
-            File.WriteAllText(fullPath, content, Encoding.UTF8);
+            System.IO.File.WriteAllText(fullPath, content, Encoding.UTF8);
         }
 
         #region Create files by template t4
 
-        private string CreateCsProj(string projectName, Layer layer)
+        private string CreateCsProj(Project project)
         {
             var template = new XmlCsProjTemplate();
             template.Session = new Dictionary<string, object>();
-            template.Session.Add("_projectGuid", "{" + Guid.NewGuid().ToString().ToUpper() + "}");
-            template.Session.Add("_rootNamespace", string.Format("{0}.{1}", projectName, layer));
-            template.Session.Add("_assemblyName", string.Format("{0}.{1}", projectName, layer));
+            template.Session.Add("__project__", project);
             template.Initialize();
             return template.TransformText();
         }
 
-        private string CreateAssemblyInfo(string projectName, Layer layer)
+        private string CreateAssemblyInfo(Project project)
         {
             var template = new AssemblyInfoTemplate();
             template.Session = new Dictionary<string, object>();
-            template.Session.Add("_namespaceName", projectName + layer);
+            template.Session.Add("_namespaceName", project.Name);
             template.Session.Add("_guid", Guid.NewGuid().ToString());
             template.Session.Add("_year", DateTime.Now.Year);
             template.Session.Add("_version", "1.0.0.0");
+            template.Initialize();
+            return template.TransformText();
+        }
+
+        private string CreateSolution(Application application)
+        {
+            var template = new SolutionTemplate();
+            template.Session = new Dictionary<string, object>();
+            template.Session.Add("__app__", application);
             template.Initialize();
             return template.TransformText();
         }

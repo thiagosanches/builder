@@ -1,22 +1,23 @@
-﻿
+﻿<#@ template language="C#" #>
+<#@ output extension=".sln" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter name="__app__" type="Builder.Dispatcher.Application" #>
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Unit", "Builder.Unit\Builder.Unit.csproj", "{3DED97EA-4375-4C2D-BDF3-2C7B7DA0B052}"
+
+<# if (__app__.Projects.Count > 0) { #>
+<# foreach (var project in __app__.Projects) { #>
+Project("<#= __app__.Guid #>") = "<#= project.Name #>", "<#= __app__.GetRelativePathToSolution(project) #>", "<#= project.Guid #>"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.ConsoleApp", "Builder.ConsoleApp\Builder.ConsoleApp.csproj", "{A1EA124F-46F2-4E08-84CB-741831363D75}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Core", "Builder.Core\Builder.Core.csproj", "{F5DC5E41-0AE6-4811-8105-4A48A1DD2C0D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Dispatcher", "Builder.Dispatcher\Builder.Dispatcher.csproj", "{0235F1D9-6904-46F1-8798-92FFBF8B0A35}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Template.CSharp", "Builder.Template.CSharp\Builder.Template.CSharp.csproj", "{552CCB8D-DA2F-4C0A-8AD5-2277DDDB9DCC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.ApplicationService", "Builder.ApplicationService\Builder.ApplicationService.csproj", "{A21DB1AD-5276-4C1D-ACB3-E9C72151A28B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Template", "Builder.Template\Builder.Template.csproj", "{53F70169-ECDA-4328-BE9F-BAAE821FB12E}"
-EndProject
+<# } #>
+<# } #>
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

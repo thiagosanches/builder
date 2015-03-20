@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Builder.Core;
 using System.IO;
+using Builder.Dispatcher;
+using Builder.Template;
 
 namespace Builder.ApplicationService
 {
     public class BuilderService
     {
-        public void Builder(string templateLibraryName, string projectName, string baseDir)
+        public void Builder(string templateLibraryName, Application app)
         {
             var builder = BuilderFactory.GetFactory(templateLibraryName);
-            builder.Build(baseDir, projectName);
+            builder.Build(app);
         }
 
         public string GenerateOutputPath(string solutionName, string outputDir)

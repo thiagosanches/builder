@@ -1,4 +1,4 @@
-﻿using Builder.Template.Interface;
+﻿using Builder.Template;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace Builder.Core
 {
     public static class BuilderFactory
     {
-        public static IBuilder GetFactory(string templateLibraryName) 
+        public static IBuilder GetFactory(string templateLibraryName)
         {
             IBuilder builder = FactoryHelper.GetInstance<IBuilder>(templateLibraryName);
             return builder;
