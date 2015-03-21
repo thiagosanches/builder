@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NCalc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +10,23 @@ namespace Builder.Dispatcher
     {
         public string Name { get; private set; }
         public string Path { get; private set; }
-        public List<Project> Projects { get; private set; }
         public string Guid { get; private set; }
+        public ProjectCollection ProjectCollection { get; private set; }
 
         public Application(string name, string path, string guid)
+            : this(name, path, guid, new ProjectCollection())
         {
-            this.Projects = new List<Project>();
+        }
+
+        public Application(string name, string path, string guid, ProjectCollection projectCollection)
+        {
+            if (projectCollection == null)
+                new Exception("Project collection can't be null in application instance");
+
             this.Name = name;
             this.Path = path;
             this.Guid = "{" + guid.ToUpper() + "}";
+            this.ProjectCollection = projectCollection;
         }
 
         /// <summary>

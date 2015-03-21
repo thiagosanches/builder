@@ -14,31 +14,79 @@ namespace Builder.ApplicationService.Command
     {
         public void Request(string[] args)
         {
-            var builderOptions = new CommandParams();
-            if (CommandLine.Parser.Default.ParseArguments(args, builderOptions))
+            var controller = "";
+            if (args.Length > 0 && args[0][0] != '-')
             {
-                bool verbose = builderOptions.Verbose;
+                controller = args[0];
+                args = args.Skip(1).ToArray();
+            }
 
-                this.WriteLog(verbose, string.Format("Start generation for application name '{0}' with template '{1} in folder {2}.'", builderOptions.Namespace, builderOptions.TemplateName, builderOptions.OutputDir));
+            if (controller == "" || controller == "create")
+            {
+                #region Create controller
 
-                var builderService = new BuilderService();
-                var baseDir = builderService.GenerateOutputPath(builderOptions.Namespace, builderOptions.OutputDir);
-                var app = new Application(builderOptions.Namespace, baseDir, Guid.NewGuid().ToString().ToUpper());
-
-                if (!string.IsNullOrWhiteSpace(builderOptions.Expression))
+                var builderOptions = new CommandCreateParams();
+                if (CommandLine.Parser.Default.ParseArguments(args, builderOptions))
                 {
-                    this.WriteLog(verbose, string.Format("Parsing project references with expression '{0}'", builderOptions.Expression));
-                    ExpressionFactory.LoadApplicationByExpression(app, builderOptions.Expression);
+                    bool verbose = builderOptions.Verbose;
+
+                    this.WriteLog(verbose, string.Format("Start generation for application name '{0}' with template '{1} in folder {2}.'", builderOptions.Namespace, builderOptions.TemplateName, builderOptions.OutputDir));
+
+                    var builderService = new BuilderService();
+                    var baseDir = builderService.GenerateOutputPath(builderOptions.Namespace, builderOptions.OutputDir);
+                    var app = new Application(builderOptions.Namespace, baseDir, Guid.NewGuid().ToString().ToUpper());
+
+                    if (!string.IsNullOrWhiteSpace(builderOptions.Expression))
+                    {
+                        this.WriteLog(verbose, string.Format("Parsing project references with expression '{0}'", builderOptions.Expression));
+                        app.ProjectCollection.ApplyExpression(builderOptions.Expression);
+                    }
+
+                    if (app.ProjectCollection.Projects.Count() > 0)
+                    {
+                        builderService.Builder(builderOptions.TemplateName, app);
+                    }
+                    else
+                    {
+                        this.WriteLog(verbose, "No project was specified for creation", true);
+                    }
                 }
 
-                if (app.Projects.Count > 0)
-                { 
-                    builderService.Builder(builderOptions.TemplateName, app);
-                }
-                else 
+                #endregion
+            }
+            else if (controller == "show")
+            {
+                #region Show controller
+
+                var builderOptions = new CommandShowParams();
+                if (CommandLine.Parser.Default.ParseArguments(args, builderOptions))
                 {
-                    this.WriteLog(verbose, "No project was specified for creation", true);
+                    bool verbose = builderOptions.Verbose;
+                    this.WriteLog(verbose, string.Format("Starting parse project to expression in path '{0}'", builderOptions.File));
+                    var projectFactory = new ProjectLoader(builderOptions.File);
+                    var project = projectFactory.LoadProject();
+
+                    if (builderOptions.IsExpression)
+                    {
+                        var resExpression = project.ToStringExpression(builderOptions.FullTree);
+                        System.Console.WriteLine("");
+                        System.Console.WriteLine("{0}", resExpression);
+                    }
+                    else if (builderOptions.IsHierarchyInverse)
+                    {
+                        var resHierarchyInverse = project.ToStringHierarchyInverse();
+                        System.Console.WriteLine("");
+                        System.Console.WriteLine("{0}", resHierarchyInverse);
+                    }
+                    else
+                    {
+                        var resHierarchy = project.ToStringHierarchy(builderOptions.FullTree);
+                        System.Console.WriteLine("");
+                        System.Console.WriteLine("{0}", resHierarchy);
+                    }
                 }
+
+                #endregion
             }
         }
 

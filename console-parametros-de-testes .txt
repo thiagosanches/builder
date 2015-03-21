@@ -1,0 +1,38 @@
+--> criar novo projeto no formato 4 camadas em CSharp:
+Builder create -t csharp -a MySolution -e "MySolution.Web + (MySolution.Model + A + B + C) + (MySolution.Business + MySolution.Model + (MySolution.Dal + MySolution.Model))"
+
+--> Expressão FULLTREE(sem o --expression assume hierarquico)
+Builder show --expression --fulltree -t csharp -f "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.ConsoleApp\bin\Debug\solutions\MySolution\MySolution.Web\MySolution.Web.csproj"
+
+--> Expressão SEM FULLTREE(sem o --expression assume hierarquico)
+Builder show --expression -t csharp -f "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.ConsoleApp\bin\Debug\solutions\MySolution\MySolution.Web\MySolution.Web.csproj"
+                      
+--> Hierarquico FULLTREE(sem o --expression assume hierarquico)
+Builder show --fulltree -t csharp -f "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.ConsoleApp\bin\Debug\solutions\MySolution\MySolution.Web\MySolution.Web.csproj"
+
+--> Hierarquico SEM FULLTREE(sem o --expression assume hierarquico)
+Builder show -t csharp -f "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.ConsoleApp\bin\Debug\solutions\MySolution\MySolution.Web\MySolution.Web.csproj"
+
+--> Hierarquico inverso (esse nunca tem FULLTREE)
+Builder show --inverse -t csharp -f "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.ConsoleApp\bin\Debug\solutions\MySolution\MySolution.Web\MySolution.Web.csproj"
+
+
+------------------------------------------------------------------
+
+
+Builder show -t csharp -f "D:\GIT\B2B2C\webstore-net-b2b2c\src\Log\Vtex.Practices.Log\Vtex.Practices.Log.csproj"
+
+Builder show --expression -t csharp -f "D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj"
+Builder show --expression --fulltree -t csharp -f "D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj"
+Builder show --inverse -t csharp -f "D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj"
+Builder show -t csharp -f "D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj"
+
+
+D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Practices.Log.DataStore\Vtex.Practices.Log.DataStore.csproj
+D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Practices.Log.DataStore\Vtex.Practices.Log.DataStore.csproj
+
+
+D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj
+D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj
+
+D:\GIT\B2B2C\webstore-net-b2b2c\src\Web Applications\Vtex.Commerce.WebApps.WebStore\Vtex.Commerce.WebApps.WebStore.csproj

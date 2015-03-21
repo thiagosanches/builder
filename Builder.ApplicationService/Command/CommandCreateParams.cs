@@ -11,7 +11,7 @@ namespace Builder.ApplicationService.Command
     /// <summary>
     /// Link: http://commandline.codeplex.com/
     /// </summary>
-    public class CommandParams
+    public class CommandCreateParams
     {
         [Option('v', "verbose", DefaultValue = true, HelpText = "Prints all messages to standard output.")]
         public bool Verbose { get; set; }

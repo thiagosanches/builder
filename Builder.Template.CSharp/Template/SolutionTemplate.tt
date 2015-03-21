@@ -11,8 +11,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 
-<# if (__app__.Projects.Count > 0) { #>
-<# foreach (var project in __app__.Projects) { #>
+<# if (__app__.ProjectCollection.Projects.Count() > 0) { #>
+<# foreach (var project in __app__.ProjectCollection.Projects) { #>
 Project("<#= __app__.Guid #>") = "<#= project.Name #>", "<#= __app__.GetRelativePathToSolution(project) #>", "<#= project.Guid #>"
 EndProject
 <# } #>

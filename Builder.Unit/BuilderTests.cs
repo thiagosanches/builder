@@ -33,7 +33,7 @@ namespace Builder.Unit
         {
             var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             var application = new Application(SolutionName, baseDir, Guid.NewGuid().ToString().ToUpper());
-            ExpressionFactory.LoadApplicationByExpression(application, "MyTemplateTest.Business");
+            application.ProjectCollection.ApplyExpression("MyTemplateTest.Business");
             BuilderService.Builder(CSHARP, application);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,
@@ -46,7 +46,7 @@ namespace Builder.Unit
         {
             var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             var application = new Application(SolutionName, baseDir, Guid.NewGuid().ToString().ToUpper());
-            ExpressionFactory.LoadApplicationByExpression(application, "MyTemplateTest.Data");
+            application.ProjectCollection.ApplyExpression("MyTemplateTest.Data");
             BuilderService.Builder(CSHARP, application);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,
@@ -59,7 +59,8 @@ namespace Builder.Unit
         {
             var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             var application = new Application(SolutionName, baseDir, Guid.NewGuid().ToString().ToUpper());
-            ExpressionFactory.LoadApplicationByExpression(application, "MyTemplateTest.Model");
+            application.ProjectCollection.ApplyExpression("MyTemplateTest.Model");
+
             BuilderService.Builder(CSHARP, application);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,
@@ -72,7 +73,8 @@ namespace Builder.Unit
         {
             var baseDir = BuilderService.GenerateOutputPath(SolutionName, baseDirectory);
             var application = new Application(SolutionName, baseDir, Guid.NewGuid().ToString().ToUpper());
-            ExpressionFactory.LoadApplicationByExpression(application, "MyTemplateTest.Project1 + MyTemplateTest.Project2 + (A+MyTemplateTest.Project2)");
+            application.ProjectCollection.ApplyExpression("MyTemplateTest.Project1 + MyTemplateTest.Project2 + (A+MyTemplateTest.Project2)");
+
             BuilderService.Builder(CSHARP, application);
 
             Assert.IsTrue(Helper.CompileProject(System.IO.Path.Combine(baseDir,

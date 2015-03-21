@@ -33,13 +33,13 @@ namespace Builder.Template.CSharp.Template
                     "1\r\n\r\n");
             
             #line 14 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
- if (__app__.Projects.Count > 0) { 
+ if (__app__.ProjectCollection.Projects.Count() > 0) { 
             
             #line default
             #line hidden
             
             #line 15 "D:\Junior\Projetos\GITHUB.COM\thiagosanches\builder\Builder.Template.CSharp\Template\SolutionTemplate.tt"
- foreach (var project in __app__.Projects) { 
+ foreach (var project in __app__.ProjectCollection.Projects) { 
             
             #line default
             #line hidden

@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuilderService.cs" />
-    <Compile Include="Command\CommandParams.cs" />
+    <Compile Include="Command\CommandShowParams.cs" />
+    <Compile Include="Command\CommandCreateParams.cs" />
     <Compile Include="Command\CommandRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

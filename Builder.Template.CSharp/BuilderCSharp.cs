@@ -18,7 +18,7 @@ namespace Builder.Template.CSharp
         {
             try
             {
-                foreach (var project in application.Projects)
+                foreach (var project in application.ProjectCollection.Projects)
                 {
                     this.WriteLibrary(application.Path, project);
                 }
