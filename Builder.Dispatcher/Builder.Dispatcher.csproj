@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="ProjectCollection.cs" />
     <Compile Include="ComplexParam.cs" />
+    <Compile Include="ApplicationLoader.cs" />
     <Compile Include="ProjectLoader.cs" />
-    <Compile Include="Hierarchy.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Folder.cs" />
     <Compile Include="File.cs" />
