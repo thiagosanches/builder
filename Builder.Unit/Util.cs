@@ -11,6 +11,41 @@ namespace Builder.Unit
         public const string TEMPLATE_NAME = "MyTemplateTest";
         public const string BASE_DIRECTORY = "Tests";
 
+        public static string ExecuteCommand(string command, string builderPath)
+        {
+            try
+            {
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+
+                //TODO - add msbuild path to the app.config file 
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = builderPath,
+                    Arguments = command,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = false,
+                };
+
+                process.Start();
+
+                System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+                while (!process.StandardOutput.EndOfStream)
+                    stringBuilder.AppendLine(process.StandardOutput.ReadLine());
+
+                if (stringBuilder.Length == 0)
+                    while (!process.StandardError.EndOfStream)
+                        stringBuilder.AppendLine(process.StandardError.ReadLine());
+
+                return stringBuilder.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static bool CompileProject(string path)
         {
             try

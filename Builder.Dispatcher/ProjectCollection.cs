@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Builder.Dispatcher
 {
@@ -33,16 +34,74 @@ namespace Builder.Dispatcher
             return this.projects.FirstOrDefault(f => f.Path == path);
         }
 
-        public void AddProject(Project project)
+        public Project AddProject(Project project)
         {
-            var exists = this.projects.Exists(f => f == project);
-            if (!exists)
-            {
-                if (this.projects.Exists(f => f.Name == project.Name))
-                    throw new Exception(string.Format("Project '{0}' alredy exists in project collection {1}", project.Name));
+            var fixDifferentPathAndSameName = true;
+            var fixDifferentNameAndSamePath = true;
 
-                this.projects.Add(project);
+            var exists = this.projects.FirstOrDefault(f => f == project || f.Name.ToLower() == project.Name.ToLower() || f.Path.ToLower() == project.Path.ToLower());
+            if (exists == null)
+            {
+                this.projects.Add(project);               
             }
+            else if (exists != null
+                && exists.Path != ""
+                && project.Path != ""
+                && exists.Name.ToLower() == project.Name.ToLower() 
+                && exists.Path.ToLower() != project.Path.ToLower())
+            {
+                var details = "Added name: " + exists.Name;
+                details += "\r\nAdded path: " + exists.Path;
+                details += "\r\nTry add name: " + project.Name;
+                details += "\r\nTry add path: " + project.Path;
+
+                var msg = string.Format("Project '{0}' alredy exists in project collection with same Name and different Path\r\n{1}", project.Name, details);
+
+                if (!fixDifferentPathAndSameName)
+                {
+                    throw new Exception(msg);
+                }
+                else 
+                {
+                    //exists.Name = exists.Name + " (" + exists.Path + ")";
+                    //project.Name = project.Name + " (" + project.Path + ")";
+
+                    var before = System.Console.ForegroundColor;
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.Write(msg);
+                    System.Console.ForegroundColor = before;
+
+                    //this.projects.Add(project);
+                    return exists;
+                }
+            }
+            else if (exists != null
+                && exists.Path != ""
+                && project.Path != ""
+                && exists.Name.ToLower() != project.Name.ToLower()
+                && exists.Path.ToLower() == project.Path.ToLower())
+            {
+                var details = "Added name: " + exists.Name;
+                details += "\r\nAdded path: " + exists.Path;
+                details += "\r\nTry add name: " + project.Name;
+                details += "\r\nTry add path: " + project.Path;
+
+                var msg = string.Format("Project '{0}' alredy exists in project collection with same Path and different Name\r\n{1}", project.Name, details);
+                if (!fixDifferentNameAndSamePath)
+                {
+                    throw new Exception(msg);
+                }
+                else
+                {
+                    var before = System.Console.ForegroundColor;
+                    System.Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.Write(msg);
+                    System.Console.ForegroundColor = before;
+                    return exists;
+                }
+            }
+
+            return project;
         }
 
         public void RemoveProject(Project project)
@@ -61,7 +120,14 @@ namespace Builder.Dispatcher
         {
             // FIX to resolve params with name contains ".", ex: "Namespace.ProjectName"
             expression = expression.Replace('.', '_');
-            Expression e = new Expression(expression);
+
+            // FIX to resolve the stranged problema with expression: A + B + C + D + (E+J) + J
+            // the expression "(E+J)" dosent parsed, the "E" params is ignored
+            //expression = expression.Replace(" ", "");
+            //expression = expression.Replace("+", " + ");
+            //expression = expression.Replace("-", " - ");
+
+            Expression e = new Expression(expression, EvaluateOptions.NoCache);
 
             e.EvaluateFunction += delegate(string name, FunctionArgs args)
             {
@@ -94,20 +160,29 @@ namespace Builder.Dispatcher
 
         #region ToString Methods
 
-        public Dictionary<string, string> ToExpression(Application application)
+        public Dictionary<string, string> ToExpression(bool showFullTree)
         {
             var dictionaries = new Dictionary<string, string>();
             foreach (var project in this.projects)
-                dictionaries.Add(project.Name, project.ToStringExpression());
+                dictionaries.Add(project.Name, project.ToStringExpression(showFullTree));
 
             return dictionaries;
         }
 
-        public Dictionary<string, string> ToStringHierarchy()
+        public Dictionary<string, string> ToStringHierarchy(bool showFullTree)
         {
             var dictionaries = new Dictionary<string, string>();
             foreach (var project in this.projects)
-                dictionaries.Add(project.Name, project.ToStringHierarchy());
+                dictionaries.Add(project.Name, project.ToStringHierarchy(showFullTree));
+
+            return dictionaries;
+        }
+
+        public Dictionary<string, string> ToStringHierarchyInverse()
+        {
+            var dictionaries = new Dictionary<string, string>();
+            foreach (var project in this.projects)
+                dictionaries.Add(project.Name, project.ToStringHierarchyInverse());
 
             return dictionaries;
         }

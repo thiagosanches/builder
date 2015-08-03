@@ -31,9 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build" />
-    <Reference Include="NCalc">
-      <HintPath>..\lib\NCalc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Expression\ExpressionBuilder - Copy.cs" />
+    <Compile Include="Expression\ExpressionResult.cs" />
+    <Compile Include="Expression\Reader\Tokens.cs" />
+    <Compile Include="Expression\Reader\ExpressionReader.cs" />
     <Compile Include="ProjectCollection.cs" />
     <Compile Include="ComplexParam.cs" />
     <Compile Include="ApplicationLoader.cs" />
@@ -53,6 +54,12 @@
     <Compile Include="PathHelper.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\juniorgasparotto\NCalc\Evaluant.Calculator\NCalc.csproj">
+      <Project>{5f014003-50d8-49e0-8afe-91d38dccc97c}</Project>
+      <Name>NCalc</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

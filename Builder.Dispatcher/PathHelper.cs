@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 namespace Builder.Dispatcher
 {
-    class PathHelper
+    public class PathHelper
     {
         public static string MakeAbsolute(string absolutePathRef, string relativePath)
         {

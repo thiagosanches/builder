@@ -10,8 +10,22 @@ namespace Builder.Dispatcher
     {
         public string Name { get; private set; }
         public string Path { get; private set; }
-        public string Guid { get; private set; }
         public ProjectCollection ProjectCollection { get; private set; }
+
+        private string guid;
+        public string Guid
+        {
+            get
+            {
+                return guid;
+            }
+            private set
+            {
+                guid = value;
+                if (guid[0] != '{')
+                    guid = "{" + guid + "}";
+            }
+        }
 
         public Application(string name, string path, string guid)
             : this(name, path, guid, new ProjectCollection())
@@ -25,7 +39,7 @@ namespace Builder.Dispatcher
 
             this.Name = name;
             this.Path = path;
-            this.Guid = "{" + guid.ToUpper() + "}";
+            this.Guid = guid.ToUpper();
             this.ProjectCollection = projectCollection;
         }
 
